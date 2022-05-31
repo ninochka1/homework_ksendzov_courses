@@ -49,10 +49,11 @@ enter
 cntr+C
 
  11. Через cat добавить в текстовый файл tf_2.txt строку “the sec 3”
-$ cat >> path/tf_2.txt
+$ cat >> tf_2.txt
 “the sec 3”
 enter
 cntr+C
+#указывать путь, если файл в другой директории
 
  12. Через cat добавить в текстовый файл tf_3.txt строку “the SeCoNd 2”
 $ cat >> tf_3.txt
@@ -61,10 +62,11 @@ enter
 cntr+C
 
  13. Через cat добавить в текстовый файл tf_2.txt строку “the seConD 2”
-$ cat >> path/tf_2.txt
+$ cat >> tf_2.txt
 “the seConD 2”
 enter
 cntr+C
+#указывать путь, если файл в другой директории
 
  14. Сделать текстовый файл tf_4.txt в котором будет 15 строк.
 $ cat >> tf_4.txt
@@ -92,12 +94,20 @@ total 3
 cd ..
  
 18. Вывести содержимое файла tf_3.txt в терминал.
-$ cat path/tf_3.txt
+$ cat tf_3.txt 
 #результат:
 first string
 the second 2
 the sec 2
 the SeCoNd 2
+
+   18.1 Вывести содержимое в реальном времени
+ $ tail -F tf_3.txt 
+   либо
+ $ less +F tf_3.txt 
+
+#указывать путь, если файл в другой директории
+
 
  19. Найти путь к файлу tf_4.txt
 $ find -name tf_4.txt
@@ -105,7 +115,8 @@ $ find -name tf_4.txt
 ./inner_dir_1/tf_4.txt
 
  20. Отчистить файл tf_4.txt от содержимого без удаления самого файла.
-$ cat /dev/null > path/tf_4.txt
+$ cat /dev/null > tf_4.txt
+#указывать путь, если файл в другой директории
 
  21. Найти путь к файлам у которых есть  “tf” в названии.
 $ find | grep tf
@@ -125,39 +136,40 @@ $ find | grep -i tf
 ./tf_2.txt
 
  23. Найти строки в файлах где есть комбинация букв “sec” в текущей папке
-$ grep sec -n *.*
+$ grep sec *.*
 #результат:
-tf_2.txt:2:the second 2
-tf_2.txt:4:the sec 3
-#если нужны файлы с конкретным расширением, например .txt, то пишем *.txt
+tf_2.txt:the second 2
+tf_2.txt:the sec 3
+#если нужны файлы с конкретным расширением, например .txt, то пишем *.txt 
+#если нужен номер строки добавляем -n
 
  24. Найти строки в файлах где есть комбинация букв “sec” в любом регистре в текущей папке
-$ grep -n -i sec *.*
+$ grep -i sec *.*
 #результат:
-tf_2.txt:2:the second 2
-tf_2.txt:4:the sec 3
-tf_2.txt:5:the seConD 2
+tf_2.txt:the second 2
+tf_2.txt:the sec 3
+tf_2.txt:the seConD 2
 
  25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке
-$ grep -n -w sec *.*
+$ grep -w sec *.*
 #результат:
-tf_2.txt:4:the sec 3
+tf_2.txt:the sec 3
 
  26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке
-$ grep -n -w -i sec *.*
+$ grep -w -i sec *.*
 #результат:
-tf_2.txt:4:the sec 3
+tf_2.txt:the sec 3
  
  27. Найти строки в файлах где есть комбинация букв “second” в текущей папке
-$ grep -n second *.*
+$ grep second *.*
 #результат:
-tf_2.txt:2:the second 2
+tf_2.txt:the second 2
 
  28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке
-$ grep -n -i second *.*
+$ grep -i second *.*
 #результат:
-tf_2.txt:2:the second 2
-tf_2.txt:5:the seConD 2
+tf_2.txt:the second 2
+tf_2.txt:the seConD 2
 
  29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
 $ grep -n -r second *
@@ -234,18 +246,4 @@ $ grep -lr sec * | xargs rm
 
  40. Просто вывести в терминал строку “Good job!!”
 $ echo "Good job!!"
-
- 40*. Можно написать скрипт вывода нужного текста (например “Good job!!”) :
-а)создать файл:
-$ cat >> script_2.txt
-#!/bin/bash
-#for_second_hw
-echo "Good job!!"
-
-б)сделать его исполняемым
-$ chmod +x ./script_2.txt
-
-в)выполнить
-$ ./script_2.txt
-Good job!!
 
