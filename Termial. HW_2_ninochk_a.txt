@@ -233,6 +233,9 @@ $ grep -hr sec * | xargs echo > new.txt
 $ grep -lr sec * | xargs rm
 
  40. Просто вывести в терминал строку “Good job!!”
+$ echo "Good job!!"
+
+ 40*. Можно написать скрипт вывода нужного текста (например “Good job!!”) :
 а)создать файл:
 $ cat >> script_2.txt
 #!/bin/bash
