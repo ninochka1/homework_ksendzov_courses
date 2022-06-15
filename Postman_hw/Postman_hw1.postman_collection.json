@@ -102,7 +102,8 @@
 						},
 						{
 							"key": "salary",
-							"value": "3000"
+							"value": "3000",
+							"description": "3000"
 						}
 					]
 				}
@@ -115,7 +116,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/object_info_3?name=Vova&age=36&salary=4000",
+					"raw": "http://162.55.220.72:5005/object_info_3?name=Vova&salary=4000&age=36",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -133,12 +134,12 @@
 							"value": "Vova"
 						},
 						{
-							"key": "age",
-							"value": "36"
-						},
-						{
 							"key": "salary",
 							"value": "4000"
+						},
+						{
+							"key": "age",
+							"value": "36"
 						}
 					]
 				}
@@ -146,7 +147,7 @@
 			"response": []
 		},
 		{
-			"name": "object_info_3",
+			"name": "object_info_4",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -190,21 +191,18 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "age",
-							"value": "36",
-							"description": "36",
-							"type": "default"
-						},
-						{
 							"key": "salary",
 							"value": "2000",
-							"description": "2000",
 							"type": "default"
 						},
 						{
 							"key": "name",
 							"value": "Nina",
-							"description": "Nina",
+							"type": "default"
+						},
+						{
+							"key": "age",
+							"value": "36",
 							"type": "default"
 						}
 					]
